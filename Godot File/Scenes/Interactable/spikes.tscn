@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6eee8f15bt5j"]
+
+[ext_resource type="Texture2D" uid="uid://eblxvt5d6e74" path="res://EpisodeFour/Spikes/Spikes.png" id="1_fvbu1"]
+
+[node name="Spikes" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_fvbu1")
+
+[node name="Area2D" type="Area2D" parent="."]
+monitorable = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(-14, 16, -14, 14, -16, 13, -16, 10, -13, 5, -9, 10, -9, 13, -6, 13, -6, 9, -8, 8, -8, 5, -5, 0, -4, 0, -1, 5, -1, 8, -3, 10, -3, 14, 2, 14, 2, 12, 0, 11, 0, 8, 4, 3, 7, 8, 7, 11, 5, 13, 5, 14, 10, 14, 10, 10, 8, 8, 8, 6, 11, 1, 12, 1, 14, 4, 15, 6, 15, 9, 13, 11, 13, 16)
