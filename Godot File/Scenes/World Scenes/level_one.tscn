@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqe400oejf77w"]
+
+[ext_resource type="Texture2D" uid="uid://cb3o4k8lm3gci" path="res://EpisodeOne/Terrain/Platform.png" id="1_htba3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xmh0k"]
+size = Vector2(96, 31)
+
+[node name="Level One" type="Node2D"]
+
+[node name="Platform" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Platform"]
+texture = ExtResource("1_htba3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_xmh0k")
