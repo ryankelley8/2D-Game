@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 @onready var animation = $AnimationPlayer
 @onready var sprite = $Sprite2D
@@ -9,6 +10,8 @@ extends CharacterBody2D
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+func _ready():
+	GameManager.player = self
 
 func _physics_process(delta):
 	if Input.is_action_pressed("left"):
@@ -35,6 +38,9 @@ func _physics_process(delta):
 	update_animation()
 	move_and_slide()
 	
+	if position.y >= 600:
+		die()
+	
 func update_animation():
 	if velocity.x != 0:
 		animation.play("Run")
@@ -45,3 +51,6 @@ func update_animation():
 		animation.play("Jump")
 	if velocity.y > 0:
 		animation.play("Fall")
+
+func die():
+	GameManager.respawn_player()

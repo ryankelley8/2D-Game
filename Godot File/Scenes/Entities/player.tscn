@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://ianxekcf0gs7"]
+[gd_scene load_steps=24 format=3 uid="uid://ianxekcf0gs7"]
 
 [ext_resource type="Script" path="res://Scripts/Player/Player.gd" id="1_cuupw"]
 [ext_resource type="Texture2D" uid="uid://bt2ob6xe80gbl" path="res://EpisodeTwo/12-Fall Sword/Fall Sword 01.png" id="2_173nd"]
@@ -17,26 +17,13 @@
 [ext_resource type="Texture2D" uid="uid://b1fyha18mwjli" path="res://EpisodeTwo/10-Run Sword/Run Sword 05.png" id="15_lmoj2"]
 [ext_resource type="Texture2D" uid="uid://dqgmjo8co4nku" path="res://EpisodeTwo/10-Run Sword/Run Sword 06.png" id="16_gqtnc"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ts6xf"]
+radius = 9.0
+height = 24.0
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j7nwf"]
 radius = 11.0
 height = 28.0
-
-[sub_resource type="Animation" id="Animation_bae5y"]
-resource_name = "Idle"
-length = 0.5
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("2_ifvb2"), ExtResource("3_sl8pj"), ExtResource("4_wh6sc"), ExtResource("5_gihpt"), ExtResource("6_21d05")]
-}
 
 [sub_resource type="Animation" id="Animation_3mtce"]
 resource_name = "Fall"
@@ -53,6 +40,23 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [ExtResource("2_173nd")]
+}
+
+[sub_resource type="Animation" id="Animation_bae5y"]
+resource_name = "Idle"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_ifvb2"), ExtResource("3_sl8pj"), ExtResource("4_wh6sc"), ExtResource("5_gihpt"), ExtResource("6_21d05")]
 }
 
 [sub_resource type="Animation" id="Animation_3wa4i"]
@@ -102,6 +106,13 @@ position = Vector2(2, 0)
 script = ExtResource("1_cuupw")
 speed = 200.0
 jump_height = -300.0
+
+[node name="Area2D" type="Area2D" parent="."]
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -2)
+shape = SubResource("CapsuleShape2D_ts6xf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("14_sw2of")
