@@ -5,7 +5,6 @@ class_name Checkpoint
 
 var activated = false
 
-
 func activate():
 	GameManager.current_checkpoint = self
 	activated = true
@@ -13,7 +12,8 @@ func activate():
 	pass
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	if spawnpoint:
+		activate()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -1,5 +1,9 @@
 extends Node
 
+signal gained_coins(int)
+
+var coins : int
+
 var current_checkpoint : Checkpoint
 
 var player : Player
@@ -16,3 +20,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+func gain_coins(coins_gained:int):
+	coins += coins_gained
+	emit_signal("gained_coins", coins_gained)
+	print(coins)
