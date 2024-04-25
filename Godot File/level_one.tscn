@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://qt7bp22uuk1t"]
+[gd_scene load_steps=13 format=3 uid="uid://qt7bp22uuk1t"]
 
 [ext_resource type="Texture2D" uid="uid://cym5u1f0nctbl" path="res://EpisodeFour/Spritesheet/BG Image.png" id="1_6vy2y"]
 [ext_resource type="PackedScene" uid="uid://ianxekcf0gs7" path="res://Scenes/Entities/player.tscn" id="2_i1yqk"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://cbr6xfctoyufu" path="res://Scenes/Interactable/checkpoint.tscn" id="5_t5smu"]
 [ext_resource type="PackedScene" uid="uid://b6eee8f15bt5j" path="res://Scenes/Interactable/spikes.tscn" id="6_px8xo"]
 [ext_resource type="PackedScene" uid="uid://bstqekwckp7j1" path="res://Scenes/Interactable/coin.tscn" id="7_kfwwt"]
+[ext_resource type="Script" path="res://Scripts/UI/UI Manager.gd" id="8_jukma"]
+[ext_resource type="Texture2D" uid="uid://dn52e3sicx4vq" path="res://EpisodeFour/Coin/01.png" id="8_rpwqw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dn07j"]
 texture = ExtResource("2_txwes")
@@ -1058,6 +1060,12 @@ position = Vector2(432, 152)
 [node name="Coin6" parent="Coin Holder" instance=ExtResource("7_kfwwt")]
 position = Vector2(179, 88)
 
+[node name="Coin32" parent="Coin Holder" instance=ExtResource("7_kfwwt")]
+position = Vector2(203, 82)
+
+[node name="Coin33" parent="Coin Holder" instance=ExtResource("7_kfwwt")]
+position = Vector2(226, 88)
+
 [node name="Coin7" parent="Coin Holder" instance=ExtResource("7_kfwwt")]
 position = Vector2(639, 296)
 
@@ -1096,3 +1104,56 @@ position = Vector2(730, 269)
 
 [node name="Coin19" parent="Coin Holder" instance=ExtResource("7_kfwwt")]
 position = Vector2(740, 281)
+
+[node name="Coin20" parent="Coin Holder" instance=ExtResource("7_kfwwt")]
+position = Vector2(457, 142)
+
+[node name="Coin21" parent="Coin Holder" instance=ExtResource("7_kfwwt")]
+position = Vector2(483, 142)
+
+[node name="Coin22" parent="Coin Holder" instance=ExtResource("7_kfwwt")]
+position = Vector2(505, 152)
+
+[node name="Coin23" parent="Coin Holder" instance=ExtResource("7_kfwwt")]
+position = Vector2(523, 165)
+
+[node name="Coin24" parent="Coin Holder" instance=ExtResource("7_kfwwt")]
+position = Vector2(532, 180)
+
+[node name="Coin25" parent="Coin Holder" instance=ExtResource("7_kfwwt")]
+position = Vector2(583, 198)
+
+[node name="Coin26" parent="Coin Holder" instance=ExtResource("7_kfwwt")]
+position = Vector2(598, 207)
+
+[node name="Coin27" parent="Coin Holder" instance=ExtResource("7_kfwwt")]
+position = Vector2(612, 219)
+
+[node name="Coin28" parent="Coin Holder" instance=ExtResource("7_kfwwt")]
+position = Vector2(623, 234)
+
+[node name="Coin29" parent="Coin Holder" instance=ExtResource("7_kfwwt")]
+position = Vector2(631, 251)
+
+[node name="Coin30" parent="Coin Holder" instance=ExtResource("7_kfwwt")]
+position = Vector2(636, 268)
+
+[node name="Coin31" parent="Coin Holder" instance=ExtResource("7_kfwwt")]
+position = Vector2(639, 283)
+
+[node name="UI Manager" type="CanvasLayer" parent="."]
+script = ExtResource("8_jukma")
+
+[node name="Coin Icon" type="TextureRect" parent="UI Manager"]
+offset_right = 24.0
+offset_bottom = 24.0
+texture = ExtResource("8_rpwqw")
+
+[node name="Coin Display" type="Label" parent="UI Manager"]
+offset_left = 23.0
+offset_top = 1.0
+offset_right = 63.0
+offset_bottom = 35.0
+theme_override_colors/font_color = Color(0.2, 0.196078, 0.235294, 1)
+theme_override_font_sizes/font_size = 16
+text = "0"
