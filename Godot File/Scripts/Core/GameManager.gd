@@ -1,8 +1,13 @@
 extends Node
 
 signal gained_coins(int)
+signal level_beaten()
+
+var completed_checkpoints = []
+var checkpoints_to_complete = 3
 
 var coins : int
+var score : int = 0
 
 var current_checkpoint : Checkpoint
 
@@ -24,4 +29,8 @@ func _process(delta):
 func gain_coins(coins_gained:int):
 	coins += coins_gained
 	emit_signal("gained_coins", coins_gained)
-	print(coins)
+
+func win():
+	emit_signal("level_beaten")
+
+

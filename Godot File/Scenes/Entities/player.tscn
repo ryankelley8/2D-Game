@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://ianxekcf0gs7"]
+[gd_scene load_steps=26 format=3 uid="uid://ianxekcf0gs7"]
 
 [ext_resource type="Script" path="res://Scripts/Player/Player.gd" id="1_cuupw"]
 [ext_resource type="Texture2D" uid="uid://bt2ob6xe80gbl" path="res://EpisodeTwo/12-Fall Sword/Fall Sword 01.png" id="2_173nd"]
@@ -24,6 +24,14 @@ height = 24.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j7nwf"]
 radius = 11.0
 height = 28.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rvluj"]
+radius = 9.0
+
+[sub_resource type="Animation" id="Animation_2g0fs"]
+resource_name = "Attack"
+length = 0.4
+loop_mode = 1
 
 [sub_resource type="Animation" id="Animation_3mtce"]
 resource_name = "Fall"
@@ -95,6 +103,7 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4suvr"]
 _data = {
+"Attack": SubResource("Animation_2g0fs"),
 "Fall": SubResource("Animation_3mtce"),
 "Idle": SubResource("Animation_bae5y"),
 "Jump": SubResource("Animation_3wa4i"),
@@ -115,11 +124,18 @@ position = Vector2(0, -2)
 shape = SubResource("CapsuleShape2D_ts6xf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("14_sw2of")
+texture = ExtResource("2_ifvb2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -2)
 shape = SubResource("CapsuleShape2D_j7nwf")
+
+[node name="Attack Area" type="Area2D" parent="."]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Attack Area"]
+position = Vector2(17, 5)
+shape = SubResource("CircleShape2D_rvluj")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
